@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <app-post></app-post>
+<h1 > {{messages}} </h1>
+
+
+
+<!-- class binding -->
+<h2 [class.text-red]="bool"> test color </h2>
+
+<h1 [class.green]="bool">green</h1>
+<!-- class binding -->
+
+<!-- event binding -->
+
+<button (click)="buttonClick()">Click me</button>
+
+<!-- event flitering -->
+<input type="text" (keyup.enter) = "onUp()" >
+<!-- template variable-->
+
+<input type="text" (keyup.enter) = "downUp(username.value)" #username>
+
+<!-- two ways Data Binding-->
+
+
+<div class="form-area"> 
+  <h1>Post Form</h1>
+  
+  <br><br>
+  
+  <input type="text" placeholder="Post title" [(ngModel)] = "postTitle">
+  
+  <br><br>
+  
+  <textarea cols="30" rows="10" placeholder="Post title"  [(ngModel)] = "postDetails"> </textarea> 
+  
+  <br><br>
+  
+  <input type="text" placeholder = "Post image url "  [(ngModel)]="imageURL">
+  
+  <br><br>
+
+  <input type="text" placeholder = "Post url "  [(ngModel)]="postURL">
+  
+ 
+  <br><br>
+  
+  <input type="checkbox" [(ngModel)]="addBackground"> add background
+</div> 
+
+<br><br>
+<br><br>
+
+<h1 class="text-preview">
+  <h1>{{postTitle}}</h1>
+  <h1>{{postDetails}}</h1>
+</h1>
+
+
+<img [src]="imgUrl" alt="" >
+
+<ul>
+  <li *ngFor = "let posts of postArray">{{posts}}</li>
+</ul>
+
+</body>
+</html>
